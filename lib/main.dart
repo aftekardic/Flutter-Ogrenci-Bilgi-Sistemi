@@ -26,7 +26,7 @@ class _HomeScreenState extends State {
   List<Student> students = [
     Student.withId(1, "FirstName1", "LastName1", 95),
     Student.withId(2, "FirstName2", "LastName2", 45),
-    Student.withId(3, "FirsName3", "LastName3", 25)
+    Student.withId(3, "FirstName3", "LastName3", 25)
   ];
 
   Student selectedStudent = Student.withId(0, "Hiç Kimse", "", 0);
