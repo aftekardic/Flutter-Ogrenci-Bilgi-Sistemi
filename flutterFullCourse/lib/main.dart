@@ -4,8 +4,15 @@ import 'package:flutterfullcourse/models/student.dart';
 import 'package:flutterfullcourse/screens/student_add.dart';
 import 'package:flutterfullcourse/screens/student_remove.dart';
 import 'package:flutterfullcourse/screens/student_update.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -23,11 +30,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State {
-  List<Student> students = [
-    Student.withId(1, "FirstName1", "LastName1", 95),
-    Student.withId(2, "FirstName2", "LastName2", 45),
-    Student.withId(3, "FirsName3", "LastName3", 25)
-  ];
+  List<Student> students = [Student.withId(0, "Hiç Kimse", "", 0)];
 
   Student selectedStudent = Student.withId(0, "Hiç Kimse", "", 0);
   Student selectedStudentWithUpdate = Student.withId(0, "Hiç Kimse", "", 0);
@@ -43,6 +46,15 @@ class _HomeScreenState extends State {
   }
 
   Widget buildBody() {
+    FirebaseFirestore.instance
+        .collection('students')
+        .snapshots()
+        .listen((data) => data.docs.forEach((doc) => students.clear()));
+
+    FirebaseFirestore.instance.collection('students').snapshots().listen(
+        (data) => data.docs.forEach((doc) => students.add(Student.withId(
+            doc['id'], doc['firstName'], doc['lastName'], doc['grade']))));
+
     return Column(
       children: <Widget>[
         Expanded(

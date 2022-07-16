@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "120385383879",
+    "project_id": "ogrenci-bilgi-sistemi-1",
+    "storage_bucket": "ogrenci-bilgi-sistemi-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120385383879:android:f75a543af6f4dfacc5fde2",
+        "android_client_info": {
+          "package_name": "com.example.flutterfullcourse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120385383879-0iscv5kmmgl0856ker9kv2mtpofp4o1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfEkkF1EEtI9S97x3wyvn2GEEGCrisSrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120385383879-0iscv5kmmgl0856ker9kv2mtpofp4o1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

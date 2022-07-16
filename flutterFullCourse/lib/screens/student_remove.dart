@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfullcourse/models/student.dart';
 import 'package:flutterfullcourse/screens/student_remove.dart';
@@ -49,13 +50,14 @@ class _StudentRemoveStatedState extends State<StudentRemove> {
                     ),
                     trailing: Icon(Icons.delete),
                     onTap: () {
+                      FirebaseFirestore.instance
+                          .collection("students")
+                          .doc(widget.students[index].firstName +
+                              widget.students[index].lastName)
+                          .delete();
                       widget.students.removeAt(index);
-                      setState(() {});
 
-                      /*print("Silinecek Öğrenci " +
-                          widget.students[index].firstName +
-                          " " +
-                          widget.students[index].lastName);*/
+                      setState(() {});
                     },
                   );
                 }),

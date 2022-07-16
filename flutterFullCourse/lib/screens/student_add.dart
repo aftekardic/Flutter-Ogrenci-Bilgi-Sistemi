@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfullcourse/models/student.dart';
 import 'package:flutterfullcourse/screens/student_add.dart';
+import 'dart:math';
 
 class StudentAdd extends StatefulWidget {
   List<Student> students;
@@ -74,11 +77,31 @@ class _StudentAddStatedState extends State<StudentAdd> {
   }
 
   Widget buildSubmitField() {
+    Random random = Random();
+
+    if (student.grade >= 50) {
+      student.status = "Geçti";
+    } else if (student.grade >= 40) {
+      student.status = "Bütünlemeye Kaldı";
+    } else {
+      student.status = "Kaldı";
+    }
+
     return ElevatedButton(
         child: Text("Ekle"),
         onPressed: () {
           formKey.currentState!.save();
           widget.students.add(student);
+          FirebaseFirestore.instance
+              .collection("students")
+              .doc(student.firstName + student.lastName)
+              .set({
+            'id': random.nextInt(100),
+            'firstName': student.firstName,
+            'lastName': student.lastName,
+            'grade': student.grade,
+            'status': student.status
+          });
           Navigator.pop(context);
         });
   }
