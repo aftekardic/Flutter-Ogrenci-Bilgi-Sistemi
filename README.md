@@ -1,16 +1,10 @@
-# flutterfullcourse
+__Project Name:__ ```flutterFullCourse```
+```
+It is a student information system application.
+Just a custom application for enjoying.
+Enabled the Firebase.
+You can add, remove or update students.
+```
 
-Engin Demirog Full Course
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+__NOTE:__ ```Application hasn't got any security protocol. All users can view and configure it what everyone is doing.```
